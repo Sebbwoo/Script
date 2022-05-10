@@ -1,0 +1,196 @@
+local Afkscript = Instance.new("ScreenGui")
+local Gui = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("Frame")
+local Title_2 = Instance.new("TextLabel")
+local Titlebottom = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local UICorner_2 = Instance.new("UICorner")
+local UIGradient_2 = Instance.new("UIGradient")
+local Discord = Instance.new("TextLabel")
+local Icon = Instance.new("ImageLabel")
+local Active = Instance.new("TextLabel")
+local clock = Instance.new("TextLabel")
+local UIGradient_3 = Instance.new("UIGradient")
+local mframe = Instance.new("Frame")
+local time = Instance.new("TextLabel")
+
+--Properties:
+
+Afkscript.Name = "Afk script"
+Afkscript.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Gui.Name = "Gui"
+Gui.Parent = Afkscript
+Gui.BackgroundColor3 = Color3.fromRGB(32, 33, 34)
+Gui.BorderColor3 = Color3.fromRGB(32, 33, 34)
+Gui.Position = UDim2.new(0, 1113, 0, 7)
+Gui.Size = UDim2.new(0, 247, 0, 100)
+Gui.Active = true 
+Gui.Draggable = true 
+
+
+UICorner.CornerRadius = UDim.new(0, 6)
+UICorner.Parent = Gui
+
+Title.Name = "Title"
+Title.Parent = Gui
+Title.BackgroundColor3 = Color3.fromRGB(245, 176, 167)
+Title.BorderColor3 = Color3.fromRGB(245, 176, 167)
+Title.Size = UDim2.new(0, 247, 0, 31)
+
+Title_2.Name = "Title"
+Title_2.Parent = Title
+Title_2.Active = true
+Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.BackgroundTransparency = 1.000
+Title_2.BorderSizePixel = 5
+Title_2.Position = UDim2.new(0.362136394, 0, -0.0322580338, 0)
+Title_2.Size = UDim2.new(0, 67, 0, 33)
+Title_2.ZIndex = 5
+Title_2.Font = Enum.Font.SourceSansBold
+Title_2.Text = "ANTI AFK SCRIPT"
+Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.TextSize = 28.000
+
+Titlebottom.Name = "Title bottom"
+Titlebottom.Parent = Title
+Titlebottom.BackgroundColor3 = Color3.fromRGB(245, 176, 167)
+Titlebottom.BorderColor3 = Color3.fromRGB(245, 176, 167)
+Titlebottom.Position = UDim2.new(0, 0, 0.709677398, 0)
+Titlebottom.Size = UDim2.new(0, 247, 0, 9)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 216, 216)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Parent = Titlebottom
+
+UICorner_2.CornerRadius = UDim.new(0, 6)
+UICorner_2.Parent = Title
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 216, 216)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient_2.Parent = Title
+
+Discord.Name = "Discord"
+Discord.Parent = Gui
+Discord.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Discord.BackgroundTransparency = 1.000
+Discord.Position = UDim2.new(0.239495888, 0, 0.576722503, 0)
+Discord.Size = UDim2.new(0, 142, 0, 13)
+Discord.Font = Enum.Font.Code
+Discord.Text = " Made by : Sebbw#1077"
+Discord.TextColor3 = Color3.fromRGB(235, 235, 235)
+Discord.TextSize = 14.000
+Discord.TextXAlignment = Enum.TextXAlignment.Left
+
+Icon.Name = "Icon"
+Icon.Parent = Gui
+Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Icon.BackgroundTransparency = 1.000
+Icon.Position = UDim2.new(0.0371039361, 0, 0.388212264, 0)
+Icon.Size = UDim2.new(0, 49, 0, 50)
+Icon.Image = "http://www.roblox.com/asset/?id=9556646615"
+Icon.ScaleType = Enum.ScaleType.Fit
+
+Active.Name = "Active"
+Active.Parent = Gui
+Active.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Active.BackgroundTransparency = 1.000
+Active.Position = UDim2.new(0.239495888, 0, 0.396722525, 0)
+Active.Size = UDim2.new(0, 142, 0, 13)
+Active.Font = Enum.Font.Code
+Active.Text = " Script  : Activated"
+Active.TextColor3 = Color3.fromRGB(235, 235, 235)
+Active.TextSize = 14.000
+Active.TextXAlignment = Enum.TextXAlignment.Left
+
+clock.Name = "clock"
+clock.Parent = Gui
+clock.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clock.BackgroundTransparency = 1.000
+clock.Position = UDim2.new(0, 65, 0, 46)
+clock.Size = UDim2.new(0, 117, 0, 71)
+clock.Font = Enum.Font.Code
+clock.Text = "Time spent:"
+clock.TextColor3 = Color3.fromRGB(235, 235, 235)
+clock.TextSize = 12.000
+clock.TextXAlignment = Enum.TextXAlignment.Left
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(32, 33, 34)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(32, 33, 34))}
+UIGradient_3.Parent = Gui
+
+mframe.Name = "mframe"
+mframe.Parent = Afkscript
+mframe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+mframe.BackgroundTransparency = 1.000
+mframe.Position = UDim2.new(0, 1071, 0, 24)
+mframe.Size = UDim2.new(0, 100, 0, 100)
+
+time.Name = "time"
+time.Parent = mframe
+time.AnchorPoint = Vector2.new(0, 1)
+time.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+time.BackgroundTransparency = 1.000
+time.BorderSizePixel = 0
+time.Position = UDim2.new(0, 176, 0, 77)
+time.Size = UDim2.new(0.781977355, 0, 0.268429935, 0)
+time.SizeConstraint = Enum.SizeConstraint.RelativeYY
+time.Font = Enum.Font.Code
+time.Text = "00:00:00:0000"
+time.TextColor3 = Color3.fromRGB(255, 255, 255)
+time.TextScaled = true
+time.TextSize = 14.000
+time.TextWrapped = true
+time.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Scripts:
+
+local function AMXXWP_fake_script() -- Afkscript.LocalScript 
+	local script = Instance.new('LocalScript', Afkscript)
+
+	local gametime = workspace.DistributedGameTime
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		local difference = workspace.DistributedGameTime-gametime
+		
+		local miliseconds = math.floor(difference/0.001)
+		local seconds = math.floor(difference/1)
+		local minutes = math.floor(difference/60)
+		local hours = math.floor(difference/3600)
+		
+		local remaininghours = hours
+		local remainingminutes = minutes-(60*hours)
+		local remainingseconds = seconds-(60*minutes)
+		local remainingmiliseconds = miliseconds-(1000*seconds)
+		
+		local rhours2 = remaininghours
+		if rhours2 < 10 then
+			rhours2 = "0"..rhours2
+		end
+		local rminutes2 = remainingminutes
+		if rminutes2 < 10 then
+			rminutes2 = "0"..rminutes2
+		end
+		local rseconds2 = remainingseconds
+		if rseconds2 < 10 then
+			rseconds2 = "0"..rseconds2
+		end
+		local rmiliseconds2 = remainingmiliseconds
+		if remainingmiliseconds < 1000 then
+			rmiliseconds2 = "0"..remainingmiliseconds
+		end
+		if remainingmiliseconds < 100 then
+			rmiliseconds2 = "00"..remainingmiliseconds
+		end
+		if remainingmiliseconds < 10 then
+			rmiliseconds2 = "000"..remainingmiliseconds
+		end
+		
+		script.Parent.mframe.time.Text = rhours2..":"..rminutes2..":"..rseconds2..":"..rmiliseconds2
+	end)
+end
+coroutine.wrap(AMXXWP_fake_script)()
+
+local vu = game:GetService"VirtualUser"
+game:GetService"Players".LocalPlayer.Idled:Connect(function()
+    vu:CaptureController()
+    vu:ClickButton2(Vector2.new())
+end)
