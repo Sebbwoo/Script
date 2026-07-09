@@ -1,1 +1,96 @@
+local CreateTimer = loadstring([[
+    return function(LocalPlayer)
+        local playerGui = LocalPlayer:WaitForChild("PlayerGui")
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Name = "GemFarmTimer"
+        screenGui.ResetOnSpawn = false
+        screenGui.Parent = playerGui
 
+        local frame = Instance.new("Frame")
+        frame.Size = UDim2.new(0, 280, 0, 110)
+        frame.AnchorPoint = Vector2.new(0.5, 0.5)
+        frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+        frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        frame.BackgroundTransparency = 0.35
+        frame.BorderSizePixel = 0
+        frame.Parent = screenGui
+
+        local mainTimer = Instance.new("TextLabel")
+        mainTimer.Size = UDim2.new(1, 0, 0, 68)
+        mainTimer.BackgroundTransparency = 1
+        mainTimer.Text = "00:00.00"
+        mainTimer.TextColor3 = Color3.fromRGB(0, 255, 80)
+        mainTimer.TextScaled = true
+        mainTimer.Font = Enum.Font.Code
+        mainTimer.Parent = frame
+
+        local splitsFrame = Instance.new("Frame")
+        splitsFrame.Size = UDim2.new(1, -16, 0, 32)
+        splitsFrame.Position = UDim2.new(0, 8, 0, 72)
+        splitsFrame.BackgroundTransparency = 1
+        splitsFrame.Parent = frame
+
+        local layout = Instance.new("UIListLayout")
+        layout.SortOrder = Enum.SortOrder.LayoutOrder
+        layout.Padding = UDim.new(0, 2)
+        layout.Parent = splitsFrame
+
+        local splitLabels = {}
+        for _, name in ipairs({"Fuel 1", "Fuel 2"}) do
+            local lbl = Instance.new("TextLabel")
+            lbl.Size = UDim2.new(1, 0, 0, 10)
+            lbl.BackgroundTransparency = 1
+            lbl.Text = name .. ": --.--s"
+            lbl.TextColor3 = Color3.fromRGB(170, 255, 180)
+            lbl.TextXAlignment = Enum.TextXAlignment.Left
+            lbl.Font = Enum.Font.Gotham
+            lbl.TextSize = 13
+            lbl.Parent = splitsFrame
+            splitLabels[name] = lbl
+        end
+
+        local startTime = 0
+        local running = false
+        local lastTime = 0
+
+        task.spawn(function()
+            while screenGui.Parent do
+                if running then
+                    local elapsed = tick() - startTime
+                    lastTime = elapsed
+                    local m = math.floor(elapsed / 60)
+                    local s = math.floor(elapsed % 60)
+                    local ms = math.floor((elapsed % 1) * 100)
+                    mainTimer.Text = string.format("%02d:%02d.%02d", m, s, ms)
+                end
+                task.wait(0.016)
+            end
+        end)
+
+        return {
+            Start = function()
+                startTime = tick()
+                running = true
+            end,
+            SplitFuel1 = function()
+                if running then
+                    splitLabels["Fuel 1"].Text = string.format("Fuel 1: %.2fs", tick() - startTime)
+                end
+            end,
+            SplitFuel2 = function()
+                if running then
+                    splitLabels["Fuel 2"].Text = string.format("Fuel 2: %.2fs", tick() - startTime)
+                end
+            end,
+            Stop = function()
+                running = false
+                return lastTime
+            end
+        }
+    end
+]])()
+
+-- Then later, replace:
+--   local TimerHUD = Stopwatch.Create()
+-- with:
+local TimerHUD = CreateTimer(LocalPlayer)
